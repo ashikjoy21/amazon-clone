@@ -34,7 +34,7 @@ export const authOptions: NextAuthOptions = {
           session.user.name = firebaseUser.displayName || session.user.name;
           session.user.email = firebaseUser.email || session.user.email;
           session.user.image = firebaseUser.photoURL || session.user.image;
-        } catch (error) {
+        } catch (error: Error) {
           console.error("Error fetching Firebase user:", error);
         }
       }

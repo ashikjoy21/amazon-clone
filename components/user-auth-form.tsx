@@ -9,13 +9,14 @@ interface UserAuthFormProps {
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const { toast } = useToast()
-  const [isLoading, setIsLoading] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [isLoading, setIsLoading] = useState(false)
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [error, setError] = useState('')
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault()
-    setIsLoading(true)
+    // setIsLoading(true)
 
     try {
       await signInWithEmailAndPassword(auth, email, password)
@@ -30,7 +31,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         variant: "destructive",
       })
     } finally {
-      setIsLoading(false)
+      // setIsLoading(false)
     }
   }
 

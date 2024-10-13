@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Icons } from "@/components/ui/icons"
+import Image from 'next/image'
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -63,7 +64,14 @@ export default function Dashboard() {
                   <CardTitle>{product.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4" />
+                  <Image 
+                    src={product.image} 
+                    alt={product.name} 
+                    width={500} 
+                    height={300} 
+                    layout="responsive" 
+                    className="w-full h-auto"
+                  />
                   <p className="text-2xl font-bold">${product.price.toFixed(2)}</p>
                   <div className="flex items-center mt-2">
                     {[...Array(5)].map((_, i) => (
@@ -88,7 +96,14 @@ export default function Dashboard() {
                   <CardTitle>{product.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4" />
+                  <Image 
+                    src={product.image} 
+                    alt={product.name} 
+                    width={500} 
+                    height={300} 
+                    layout="responsive" 
+                    className="w-full h-auto"
+                  />
                   <p className="text-xl font-bold">${product.price.toFixed(2)}</p>
                   <div className="flex items-center mt-2">
                     {[...Array(5)].map((_, i) => (
