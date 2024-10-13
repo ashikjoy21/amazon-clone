@@ -3,8 +3,16 @@
 import { getFirebaseAuth } from '@/lib/firebase/config'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-import LoginPage from '@/components/LoginPage'
-import Dashboard from '@/components/Dashboard'
+import dynamic from 'next/dynamic'
+import LoadingSpinner from '../components/LoadingSpinner'
+
+// Dynamically import components for better performance
+const LoginPage = dynamic(() => import('@/components/LoginPage'), {
+  loading: () => <LoadingSpinner />
+})
+const Dashboard = dynamic(() => import('@/components/Dashboard'), {
+  loading: () => <LoadingSpinner />
+})
 
 export default function Home() {
   const [user, setUser] = useState<User | null>(null)
@@ -21,7 +29,7 @@ export default function Home() {
   }, [])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <LoadingSpinner />
   }
 
   if (!user) {
