@@ -1,5 +1,5 @@
 // config.ts
-import { initializeApp, getApps, FirebaseApp } from "firebase/app";
+import { initializeApp, FirebaseApp } from "firebase/app";
 import { getAuth, Auth } from "firebase/auth";
 
 // Firebase configuration
